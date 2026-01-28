@@ -1,0 +1,17 @@
+@use "../partials/variables" as v;
+
+@layer components {
+  .container {
+    // marge de 1 rem à gauche et à droite
+    margin-inline: 1rem;
+    // parcourir une map $breakpoints située dans /partials/_variables.scss
+    @each $name, $size in v.$breakpoints {
+      @media (width > $size) {
+        @if ($name == "sm") {
+          margin: auto;
+        }
+        max-width: calc($size - 4rem);
+      }
+    }
+  }
+}

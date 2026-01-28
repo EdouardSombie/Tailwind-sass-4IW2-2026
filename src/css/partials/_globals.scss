@@ -1,0 +1,21 @@
+@use "fonts";
+@use "variables" as v;
+
+@layer base {
+  :root {
+    --mainFont: #{fonts.$mainFont};
+    --spacing: #{v.$spacing};
+    @each $name, $value in v.$colors {
+      --#{$name}: #{$value};
+    }
+  }
+
+  body {
+    font-family: var(--mainFont);
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
