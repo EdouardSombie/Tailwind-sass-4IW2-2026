@@ -2,3 +2,25 @@
 @function rem($pxVal) {
   @return math.div($pxVal, 16) * 1rem;
 }
+
+@mixin flexbox($direction: row, $wrap: nowrap, $justify: flex-start, $align: stretch, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin resetList {
+  list-style: none;
+  margin-block: 0;
+  padding-inline-start: 0;
+}
+
+@mixin textGradient($direction: bottom, $startColor, $endColor) {
+  background: linear-gradient(to $direction, $startColor, $endColor);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}

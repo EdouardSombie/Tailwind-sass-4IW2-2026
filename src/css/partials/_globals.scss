@@ -1,5 +1,6 @@
 @use "fonts";
 @use "variables" as v;
+@use "sass:map";
 
 @layer base {
   :root {
@@ -8,10 +9,27 @@
     @each $name, $value in v.$colors {
       --#{$name}: #{$value};
     }
+    @each $name, $map in v.$agnosticColors {
+      --#{$name}: var(--#{map.get($map, light)});
+    }
+    @media (prefers-color-scheme: dark) {
+      @each $name, $map in v.$agnosticColors {
+        --#{$name}: var(--#{map.get($map, dark)});
+      }
+    }
+  }
+
+  .dark,
+  [data-theme="dark"] {
+    @each $name, $map in v.$agnosticColors {
+      --#{$name}: var(--#{map.get($map, dark)});
+    }
   }
 
   body {
     font-family: var(--mainFont);
+    background-color: var(--body-bg-color);
+    color: var(--body-text-color);
   }
 
   img {
