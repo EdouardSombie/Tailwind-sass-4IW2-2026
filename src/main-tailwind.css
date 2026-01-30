@@ -1,15 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-edouard-50: #f5f7fa;
-  --color-edouard-100: #e9eef5;
-  --color-edouard-200: #cedae9;
-  --color-edouard-300: #a3bad6;
-  --color-edouard-400: #7297be;
-  --color-edouard-500: #507aa7;
-  --color-edouard-600: #3d618c;
-  --color-edouard-700: #334e71;
-  --color-edouard-800: #2d445f;
-  --color-edouard-900: #2a3a50;
-  --color-edouard-950: #1e293a;
+  --color-darkBlue: #1e293a;
+  --color-blue: #5d7a97;
+  --color-pink: #ff2896;
+  --color-orange: #ff9b65;
+  --color-green: #00d5d5;
+  --color-cyan: #00ffc2;
+}
+
+@layer components {
+  .btn {
+    @apply text-pink flex h-8 w-8 items-center justify-center rounded-full bg-white;
+    svg,
+    path {
+      fill: currentColor;
+    }
+  }
 }
